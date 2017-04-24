@@ -1,0 +1,22 @@
+To build this, "make" should suffice.
+
+When accepting a zebra file from the UPS web site, this plugin will
+send that file to a locally connected label printer.  You must specify
+the print command that will be used.  This is found near the end of
+plugin.h.  You need to define the PRINTER token to the name of your
+printer.  Or if needed, you can redefine the whole LPR_CALL to some
+other print command if your system requires it.  Note that the code
+tries to substitute the value of PRINTER into LPR_CALL via sprintf so
+you must have a %s in LPR_CALL which will get substituted with the value 
+of PRINTER.
+
+After rebuilding, you will have to install this for your local
+mozilla installation.  This can be done by on a per-user basis by
+browsing the local file: index.html.
+
+To install system-wide (for all users), copy this file:
+
+  libupsprintplugin.so
+
+into /usr/lib/mozilla.../plugins or whereever you install your
+mozilla.
